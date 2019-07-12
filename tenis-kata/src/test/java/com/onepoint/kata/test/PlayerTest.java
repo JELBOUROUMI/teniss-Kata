@@ -25,13 +25,5 @@ public class PlayerTest {
 		Assert.assertEquals(result, player1.marquer());
 	}
 
-	@Test(expected = NullPointerException.class)
-	public void testMarquerNullGame() {
-
-		String result = "jamal 15 - 0 Hervy";
-		Player player1 = new Player("jamal");
-		Player player2 = new Player("Hervy");
-		player1.marquer();
-	}
 
 }

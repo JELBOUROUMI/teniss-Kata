@@ -55,6 +55,17 @@ public class PartieTest {
 	}
 
 	@Test
+	public void testIncrementScoreActiveDeuce() {
+		partie.setDeuce(true);
+		scorePlayer1 = scorePlayer2 = 4;
+		partie.setScorePartiePlayer1(scorePlayer1);
+		partie.setScorePartiePlayer2(scorePlayer2);
+		int result = partie.incrementScore(indiceJoueur);
+		System.out.println(result);
+		Assert.assertEquals(3, result);
+	}
+	
+	@Test
 	public void testActiveDeuce() {
 		partie.setScorePartiePlayer1(scorePlayer1);
 		partie.setScorePartiePlayer2(scorePlayer2);
@@ -69,11 +80,51 @@ public class PartieTest {
 		Integer result = partie.gagnantPartie();
 		Assert.assertEquals(new Integer(joueurGagneePartie), result);
 	}
+	
+	@Test
+	public void testGagnantPartieTrue() {
 
+		partie.setTieBreak(true);
+		partie.setScorePartiePlayer1(scorePlayer1);
+		partie.setScorePartiePlayer2(scorePlayer2);
+		Integer result = partie.gagnantPartie();
+		Assert.assertEquals(new Integer(3), result);
+	}
+	
+	@Test
+	public void testGagnantPartieTrue2() {
+
+		partie.setTieBreak(true);
+		partie.setScorePartiePlayer1(9);
+		partie.setScorePartiePlayer2(7);
+		Integer result = partie.gagnantPartie();
+		Assert.assertEquals(new Integer(1), result);
+	}
+	
+	@Test
+	public void testGagnantPartieTrue3() {
+
+		partie.setTieBreak(true);
+		partie.setScorePartiePlayer1(7);
+		partie.setScorePartiePlayer2(9);
+		Integer result = partie.gagnantPartie();
+		Assert.assertEquals(new Integer(2), result);
+	} 
+	
 	@Test
 	public void testScoreIntToString() {
 
 		Assert.assertEquals(score, partie.scoreIntToString(scorePlayer1));
+
+	}
+	@Test
+	public void testScoreIntToString2() {
+		
+		partie.setScorePartiePlayer1(scorePlayer1);
+		partie.setScorePartiePlayer2(scorePlayer1);
+		partie.setDeuce(true);
+		
+		Assert.assertEquals("DAUCE'", partie.scoreIntToString(scorePlayer1));
 
 	}
 

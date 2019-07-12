@@ -35,7 +35,7 @@ public class GameTest {
 	private int gagnant;
 	private String scoreGame;
 	private String resultPartie;
-
+	Partie partie;
 	Game game;
 
 	public GameTest(boolean terminee, int joueur, String result, int scoreGamePlayer1, int scoreGamePlayer2, int gagnat,
@@ -54,7 +54,7 @@ public class GameTest {
 
 	@Before
 	public void init() {
-
+		partie = new Partie();
 		game = new Game(new Player("jamal"), new Player("Hervy"));
 
 	}
@@ -62,7 +62,8 @@ public class GameTest {
 	@Test
 	public void testPlayerMarque() {
 		game.setTerminee(termine);		
-		game.setCurrentpartie(new Partie());
+		partie = new Partie();
+		game.setCurrentpartie(partie);
 		Assert.assertEquals(result,  game.playerMarque(joueur));
 
 	}
