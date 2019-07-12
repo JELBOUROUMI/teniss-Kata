@@ -8,6 +8,7 @@ package com.onepoint.kata;
 
 public class Partie {
 
+
 	private int scorePartiePlayer1;
 	private int scorePartiePlayer2;
 	private boolean deuce = false;
@@ -22,13 +23,15 @@ public class Partie {
 	 */
 	public int incrementScore(int indiceDuJoureur) {
 
-		switch (indiceDuJoureur) {
-		case 1:
+		
+		if(indiceDuJoureur == 1) {
+			
 			incrementScorePlayer1();
-			break;
-		case 2:
-			incrementScorePlayer2();
-			break;
+		}
+		else {
+			if(indiceDuJoureur == 2) {
+				incrementScorePlayer2();
+			}
 		}
 
 		return gagnantPartie();
@@ -65,8 +68,8 @@ public class Partie {
 	 * @return
 	 */
 	public boolean activeDeuce() {
-		if (!isTieBreak())// s'il ne sont pas dans teiBreak
-			if (scorePartiePlayer1 >= 3 && scorePartiePlayer2 >= 3)
+		// s'il ne sont pas dans teiBreak
+		if (!isTieBreak() && scorePartiePlayer1 >= 3 && scorePartiePlayer2 >= 3)
 				deuce = true;
 		return deuce;
 	}
@@ -129,30 +132,6 @@ public class Partie {
 		}
 	}
 
-	public int getScorePlayer1() {
-		return scorePartiePlayer1;
-	}
-
-	public void setScorePlayer1(int scorePlayer1) {
-		this.scorePartiePlayer1 = scorePlayer1;
-	}
-
-	public int getScorePlayer2() {
-		return scorePartiePlayer2;
-	}
-
-	public void setScorePlayer2(int scorePlayer2) {
-		this.scorePartiePlayer2 = scorePlayer2;
-	}
-
-	public boolean isDeuce() {
-		return deuce;
-	}
-
-	public void setDeuce(boolean deuce) {
-		this.deuce = deuce;
-	}
-
 	public int getScorePartiePlayer1() {
 		return scorePartiePlayer1;
 	}
@@ -169,6 +148,14 @@ public class Partie {
 		this.scorePartiePlayer2 = scorePartiePlayer2;
 	}
 
+	public boolean isDeuce() {
+		return deuce;
+	}
+
+	public void setDeuce(boolean deuce) {
+		this.deuce = deuce;
+	}
+
 	public boolean isTieBreak() {
 		return tieBreak;
 	}
@@ -176,6 +163,5 @@ public class Partie {
 	public void setTieBreak(boolean tieBreak) {
 		this.tieBreak = tieBreak;
 	}
-	
 
 }

@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Game {
 
+
 	private Player player1;
 	private Player player2;
 	private List<Partie> parties;
@@ -19,11 +20,6 @@ public class Game {
 	private int scoreGamePlayer1;
 	private int scoreGamePlayer2;
 	private boolean terminee = false;
-
-	public Game() {
-		parties = new ArrayList<Partie>();
-		currentpartie = new Partie();
-	}
 
 	public Game(Player player1, Player player2) {
 		super();
@@ -64,13 +60,16 @@ public class Game {
 	 * @param indiceDuJoureur
 	 */
 	private void incrementScoreGame(int indiceDuJoureur) {
-		switch (indiceDuJoureur) {
-		case 1:
+		
+		if(indiceDuJoureur == 1) {
 			incrementScoreGamePlayer1();
-			break;
-		case 2:
-			incrementScoreGamePlayer2();
-			break;
+	
+		}
+		else {
+			if(indiceDuJoureur == 2) {
+				incrementScoreGamePlayer2();
+
+			}
 		}
 	}
 
@@ -117,11 +116,9 @@ public class Game {
 	public String getScoreCurentPartie() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(player1.getNom() + " ");
-		builder.append(currentpartie.scoreIntToString(currentpartie.getScorePlayer1()));
-		// builder.append(scorePlayer1);
+		builder.append(currentpartie.scoreIntToString(currentpartie.getScorePartiePlayer1()));
 		builder.append(" - ");
-		builder.append(currentpartie.scoreIntToString(currentpartie.getScorePlayer2()));
-		// builder.append(scorePlayer2);
+		builder.append(currentpartie.scoreIntToString(currentpartie.getScorePartiePlayer2()));
 		builder.append(" " + player2.getNom());
 		return builder.toString();
 	}
@@ -134,37 +131,12 @@ public class Game {
 		StringBuilder builder = new StringBuilder();
 		builder.append(player1.getNom() + " ");
 		builder.append(scoreGamePlayer1);
-		// builder.append(scorePlayer1);
 		builder.append(" - ");
 		builder.append(scoreGamePlayer2);
-		// builder.append(scorePlayer2);
 		builder.append(" " + player2.getNom());
 		return builder.toString();
 	}
 
-	public Player getPlayer1() {
-		return player1;
-	}
-
-	public void setPlayer1(Player player1) {
-		this.player1 = player1;
-	}
-
-	public Player getPlayer2() {
-		return player2;
-	}
-
-	public void setPlayer2(Player player2) {
-		this.player2 = player2;
-	}
-
-	public List<Partie> getParties() {
-		return parties;
-	}
-
-	public void setParties(List<Partie> parties) {
-		this.parties = parties;
-	}
 
 	public Partie getCurrentpartie() {
 		return currentpartie;
@@ -174,17 +146,11 @@ public class Game {
 		this.currentpartie = currentpartie;
 	}
 
-	public int getScoreGamePlayer1() {
-		return scoreGamePlayer1;
-	}
 
 	public void setScoreGamePlayer1(int scoreGamePlayer1) {
 		this.scoreGamePlayer1 = scoreGamePlayer1;
 	}
 
-	public int getScoreGamePlayer2() {
-		return scoreGamePlayer2;
-	}
 
 	public void setScoreGamePlayer2(int scoreGamePlayer2) {
 		this.scoreGamePlayer2 = scoreGamePlayer2;
@@ -197,6 +163,7 @@ public class Game {
 	public void setTerminee(boolean terminee) {
 		this.terminee = terminee;
 	}
+
 
 	
 }

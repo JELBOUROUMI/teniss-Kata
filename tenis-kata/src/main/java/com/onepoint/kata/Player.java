@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Player {
 
-	private List<Game> games;
 	private Game currentGame;
 	private String nom;
 	private int numero;
@@ -24,9 +23,6 @@ public class Player {
 		return currentGame.playerMarque(numero);
 	}
 
-	public Player() {
-
-	}
 
 	public Player(String nom) {
 		super();
@@ -37,34 +33,13 @@ public class Player {
 		return nom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public List<Game> getGames() {
-		return games;
-	}
-
-	public void setGames(List<Game> games) {
-		this.games = games;
-	}
-
-	public Game getCurrentGame() {
-		return currentGame;
-	}
-
 	public void setCurrentGame(Game currentGame) {
 		this.currentGame = currentGame;
 	}
 
-	public int getNumero() {
-		return numero;
-	}
 
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 	
-	
-
 }
