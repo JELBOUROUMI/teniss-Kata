@@ -164,4 +164,5 @@ public class Partie {
 		this.tieBreak = tieBreak;
 	}
 
+
 }

@@ -1,6 +1,7 @@
 package com.onepoint.kata;
 
 import java.util.List;
+
 /**
  * 
  * @author Jamal EL BOUROUMI
